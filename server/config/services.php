@@ -30,4 +30,8 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'ecb' => [
+        'rates_rss_feed_url' => env('ECB_RATES_RSS_FEED_URL'),
+    ],
+
 ];

@@ -1,0 +1,23 @@
+<p class="lead font-weight-bold">ECB currency exchange rates against EUR</p>
+<p>Updated: {{ updatedAt }}</p>
+<div class="table-responsive border rounded p-3 mb-3">
+  <table class="table table-bordered table-striped table-hover table-sm">
+    <thead>
+      <tr>
+        <th class="border-0 px-3">Currency</th>
+        <th class="border-0 px-3">Rate</th>
+        <th class="border-0 px-3 text-center">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ecbRate of ecbRates | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+        <td class="px-3">{{ ecbRate.currency }}</td>
+        <td class="px-3">{{ ecbRate.rate }}</td>
+        <td class="px-3 text-center">
+          <button type="button" class="btn btn-sm btn-link" routerLink="/ecb-rates/{{ ecbRate.id }}">Show details</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="ecbRates.length"></ngb-pagination>
+</div>

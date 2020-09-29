@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col">
+    <p class="lead font-weight-bold">Details</p>
+  </div>
+  <div class="col text-right">
+    <button type="button" class="btn btn-sm btn-link" routerLink="/ecb-rates">List of ECB currency exchange rates</button>
+  </div>
+</div>
+<div class="card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <p class="card-text">Actual rate:</p>
+        <table class="table table-bordered table-striped table-hover table-sm">
+          <tbody>
+            <tr>
+              <td class="px-3">Date</td>
+              <td class="px-3 text-right">{{ ecbRate.date }}</td>
+            </tr>
+            <tr>
+              <td class="px-3">Currency</td>
+              <td class="px-3 text-right">{{ ecbRate.currency }}</td>
+            </tr>
+            <tr>
+              <td class="px-3">Rate</td>
+              <td class="px-3 text-right">{{ ecbRate.rate }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col">
+        <p class="card-text">Historical rates:</p>
+        <table class="table table-bordered table-striped table-hover table-sm">
+          <tbody>
+            <tr *ngFor="let history of ecbRate.history">
+              <td class="px-3">{{ history.date }}</td>
+              <td class="px-3 text-right">{{ history.rate }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
